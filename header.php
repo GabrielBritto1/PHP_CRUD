@@ -16,18 +16,44 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="cliente.php">Aluguel de carro</a>
+                <a class="navbar-brand" href="../controle cliente/cliente.php">Aluguel de carro</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="cliente.php">Cliente</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Cliente
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../controle cliente/cliente.php">Cadastrar
+                                        Cliente</a></li>
+                                <li><a class="dropdown-item" href="../controle cliente/atualizar_cliente.php">Atualizar
+                                        Cliente</a></li>
+                                <li><a class="dropdown-item" href="../controle cliente/deletar_cliente.php">Deletar
+                                        Cliente</a></li>
+                                <li><a class="dropdown-item" href="../controle cliente/listar_cliente.php">Listar
+                                        Clientes</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="carro.php">Carros</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Carro
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../controle carro/carro.php">Cadastrar Carro</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../controle carro/atualizar_carro.php">Atualizar
+                                        Carro</a></li>
+                                <li><a class="dropdown-item" href="../controle carro/deletar_carro.php">Deletar
+                                        Carro</a></li>
+                                <li><a class="dropdown-item" href="../controle carro/listar_carro.php">Listar
+                                        Carro</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Aluguel</a>
