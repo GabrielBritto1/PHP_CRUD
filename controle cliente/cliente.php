@@ -55,7 +55,7 @@ if (isset($_POST) && !empty($_POST)) {
             mysqli_query($conn, $sqlCliente);
             ?>
             <div class=" alert alert-success col-md-6 offset-3" style="margin-top: 1em;"">
-                cliente inserido com sucesso!
+                Cliente inserido com sucesso!
             </div>
             <?php
         } catch (mysqli_sql_exception) {
