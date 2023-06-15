@@ -56,7 +56,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Aluguel</a>
+                            <a class="nav-link" href="../controle aluguel/aluguel.php">Aluguel</a>
                         </li>
                     </ul>
                 </div>
