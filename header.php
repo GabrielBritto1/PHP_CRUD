@@ -55,9 +55,18 @@
                                         Carro</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../controle aluguel/aluguel.php">Aluguel</a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Aluguel
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="../controle aluguel/aluguel.php">Realizar aluguel</a>
+                                </li>
+                                <li><a class="dropdown-item" href="../controle aluguel/status_aluguel.php">Listar
+                                        aluguel</a>
+                                </li>
+                            </ul>
                     </ul>
                 </div>
             </div>

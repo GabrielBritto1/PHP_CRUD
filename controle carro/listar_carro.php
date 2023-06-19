@@ -5,8 +5,8 @@ include("../header.php");
 <?php
 include("../database.php");
 
-$sqlCliente = "SELECT * FROM carro";
-$resultado = mysqli_query($conn, $sqlCliente);
+$sqlCarro = "SELECT * FROM carro";
+$resultado = mysqli_query($conn, $sqlCarro);
 
 if (mysqli_num_rows($resultado)) {
     while ($row = mysqli_fetch_assoc($resultado)) {

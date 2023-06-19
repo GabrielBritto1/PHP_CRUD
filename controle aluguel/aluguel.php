@@ -3,78 +3,35 @@ include("../header.php");
 
 include("../database.php");
 
-function filtarAluguel($conn, $data, $ativo)
-{
-    $sql = "SELECT c.nome, c.cpf, cr.modelo, cr.ano
-          FROM aluguel AS al
-          INNER JOIN cliente AS c ON al.IDCliente = c.id
-          INNER JOIN carro AS cr ON al.IDCarro = cr.id
-          WHERE al.dataAluguel >= '$data'
-          AND al.ativo = '$ativo'
-          ORDER BY al.dataAluguel ASC";
+echo "
+<div class='card col-md-6 offset-3' style='margin-top: 1em;'>
+    <div class='card-header'>
+        <h3 class='card-title' style='text-align: center'>Realizar aluguel</h3>
+    </div>
 
-    $resultado = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($resultado)) {
-        return mysqli_fetch_all($resultado, MYSQL_ASSOC);
-    } else {
-        return [];
-    }
-}
-
-$filtroData = isset($_POST['data']) ? $_POST['data'] : date("Y-m-d");
-$filtroAtivo = isset($_POST['ativo']) ? $_POST['ativo'] : "ativo";
-
-$aluguel = filtarAluguel($conn, $filtroData, $filtroAtivo);
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Visualização de Aluguéis</title>
-    <style>
-        .zebra-list li:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>Visualização de Aluguéis</h1>
-
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <label for="data">Data:</label>
-        <input type="date" name="data" value="<?php echo $filtroData; ?>">
-
-        <label for="ativo">Situação:</label>
-        <select name="ativo">
-            <option value="ativo" <?php if ($filtroAtivo == "ativo")
-                echo "selected"; ?>>Ativo</option>
-            <option value="inativo" <?php if ($filtroAtivo == "inativo")
-                echo "selected"; ?>>Inativo</option>
-        </select>
-
-        <input type="submit" value="Filtrar">
-    </form>
-
-    <ul class="zebra-list">
-        <?php foreach ($alugueis as $aluguel): ?>
-            <li>
-                <strong>Cliente:</strong>
-                <?php echo $aluguel['nome']; ?> (CPF:
-                <?php echo $aluguel['cpf']; ?>) |
-                <strong>Carro:</strong>
-                <?php echo $aluguel['modelo']; ?> (Ano:
-                <?php echo $aluguel['ano']; ?>)
-            </li>
-        <?php endforeach; ?>
-    </ul>
-
-</body>
-
-</html>
-
-<?php
-mysqli_close($conn);
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-4 offset-4'>
+                <form action='./aluguel.php' method='post'>
+                    <div class='form-group'>
+                        <label>Cliente:</label>
+                        <input type='text' name='modelo' placeholder='Cliente' class='form-control'><br>
+                    </div>
+                    <div class='form-group'>
+                        <label>Carro:</label>
+                        <select class='form-select' aria-label='Default select example'>
+                            <option selected>Modelos</option>
+                            <option>$row[modelo]</option>
+                        </select><br>
+                    </div>
+                    <div class='form-group' style='text-align: center;'>
+                        <button class='btn btn-success form-control' type='submit'>
+                            Fazer aluguel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>";
 ?>

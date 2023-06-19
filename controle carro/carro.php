@@ -33,17 +33,15 @@ include "../header.php";
 <?php
 if (isset($_POST) && !empty($_POST)) {
     if (empty($_POST["modelo"])) {
-        ?>
-        <div class="alert alert-danger col-md-6 offset-3" style="margin-top: 1em;"">
+        echo "
+        <div class='alert alert-danger col-md-6 offset-3' style='margin-top: 1em;''>
             Modelo não pode ser vazio
-        </div>
-        <?php
+        </div>";
     } elseif (empty($_POST["ano"])) {
-        ?>
-        <div class=" alert alert-danger col-md-6 offset-3" style="margin-top: 1em;"">
+        echo "
+        <div class='alert alert-danger col-md-6 offset-3' style='margin-top: 1em;''>
             Ano não pode ser vazio
-        </div>
-        <?php
+        </div>";
     } else {
         include "../database.php";
         $modelo = $_POST["modelo"];
@@ -53,17 +51,15 @@ if (isset($_POST) && !empty($_POST)) {
 
         try {
             mysqli_query($conn, $sqlCliente);
-            ?>
-            <div class=" alert alert-success col-md-6 offset-3" style="margin-top: 1em;"">
+            echo "
+            <div class='alert alert-success col-md-6 offset-3' style='margin-top: 1em;''>
                 Carro inserido com sucesso!
-            </div>
-            <?php
+            </div>";
         } catch (mysqli_sql_exception) {
-            ?>
-            <div class=" alert alert-danger col-md-6 offset-3" style="margin-top: 1em;"">
+            echo "
+            <div class=' alert alert-danger col-md-6 offset-3' style='margin-top: 1em;''>
                 Não foi possível registrar o carro!
-            </div>
-            <?php
+            </div>";
         }
         mysqli_close($conn);
     }
